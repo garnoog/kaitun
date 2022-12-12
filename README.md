@@ -63,16 +63,16 @@ _G.WindowBackgroundColor = Color3.fromRGB(12,12,12)
 _G.BackgroundItemColor = Color3.fromRGB(20, 20, 20)
 _G.TabWindowColor = Color3.fromRGB(30, 30, 30)
 _G.ContainerColor = Color3.fromRGB(30, 30, 30)
-_G.TitleTextColor = Color3.fromRGB(150, 150, 150)
+_G.TitleTextColor = Color3.fromRGB(0, 150, 150)
 _G.ImageColor = Color3.fromRGB(150, 150, 150)
-_G.LineThemeColor = Color3.fromRGB(150, 150, 150)
+_G.LineThemeColor = Color3.fromRGB(0, 0, 150)
 _G.TabTextColor = Color3.fromRGB(150, 150, 150)
 _G.TabImageColor = Color3.fromRGB(150, 150, 150)
 _G.TabThemeColor = Color3.fromRGB(250, 0, 0)
 _G.SectionColor = Color3.fromRGB(150, 150, 150)
 _G.SectionImageColor = Color3.fromRGB(150, 150, 150)
 _G.SectionTextColor = Color3.fromRGB(150, 150, 150)
-_G.SectionOn = Color3.fromRGB(0, 250, 0)
+_G.SectionOn = Color3.fromRGB(255, 250, 0)
 
 
 function Blacklib:Window()
@@ -1928,10 +1928,27 @@ end
 local Win = Blacklib:Window("Gui")
 -- Tabes --
 local Main = Win:Tab("• Main", "rbxassetid://8825667942")
-local Home = Win:Tab("• Setting", nil)
+local Home = Win:Tab("• Check", nil)
 -- Section --
 local A = Main:NewSection("Mode KaiTun")
 local S = Home:NewSection("Chack")
+
+osfunc = A:Label("TimeZone")
+
+local function UpdateOS()
+        local date = os.date("*t")
+        local hour = (date.hour) % 24
+        local ampm = hour < 12 and "AM" or "PM"
+        local timezone = string.format("%02i:%02i:%02i %s", ((hour -1) % 12) + 1, date.min, date.sec, ampm)
+        local datetime = string.format("%02d/%02d/%04d", date.day, date.month, date.year)
+        osfunc:Refresh("day : "..datetime.." Time : "..timezone)
+    end
+    spawn(function()
+        while true do
+            UpdateOS()
+            game:GetService("RunService").RenderStepped:Wait()
+        end
+    end)
 
 Time = A:Label("Server Time")
 
@@ -1976,6 +1993,14 @@ spawn(function()
         UpdateC()
     end
 end)
+
+pingfunc = A:Label("Memory")
+
+spawn(function()
+        while game:GetService("RunService").RenderStepped:wait() do
+            pingfunc:Refresh("Memory : " ..tostring(game:GetService("Stats").PerformanceStats.Memory:GetValueString()).." - "..tostring(game:GetService("Stats").PerformanceStats.NetworkReceived:GetValueString()).." - "..tostring(game:GetService("Stats").PerformanceStats.Ping:GetValueString()))
+        end
+    end)
 
 A:Line()
 
