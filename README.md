@@ -2805,10 +2805,28 @@ spawn(function()
 spawn(function()
     while wait() do
         CheckQuest()
-        QuestStatus:Refresh("Quest : "..NameQuest.." | LevelQ : "..LevelQuest.." | Mon : "..Mon)
+        QuestStatus:Refresh("Quest : "..NameQuest)
 end
 end)
-                                                
+
+ Questlv = A:Label("")
+
+spawn(function()
+    while wait() do
+        CheckQuest()
+        Questlv:Refresh("LevelQuest : "..LevelQuest)
+end
+end)
+
+ NamemonStatus = A:Label("")
+
+spawn(function()
+    while wait() do
+        CheckQuest()
+        NamemonStatus:Refresh("Mon & Level Mon : "..Mon)
+end
+end)
+
     spawn(function()
         pcall(function()
             while wait() do
@@ -3240,8 +3258,25 @@ task.spawn(function()
         end)
     end)
     
+    S.Line()
+    
+  PlayerName = S:Label("")
+  
+  spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    PlayerName:Refresh("PlayerName : " .. game.Players.localPlayer.Name)
+                end
+            end
+        )
+    end
+)
+    
     local locallv = S:Label("Level")
     
+   
     spawn(function()
         while wait() do
             pcall(function()
@@ -3317,13 +3352,39 @@ task.spawn(function()
         while wait() do
             pcall(function()
                 if game:GetService("Players").LocalPlayer.Character:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild(game:GetService("Players").LocalPlayer.Data.DevilFruit.Value) then
-                    localDevil:Set("Devil Fruit :".." "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
+                    localDevil:Refresh("Devil Fruit :".." "..game:GetService("Players").LocalPlayer.Data.DevilFruit.Value)
                 else
-                    localDevil:Set("Not Have Devil Fruit")
+                    localDevil:Refresh("Not Have Devil Fruit")
                 end
             end)
         end
     end)
+    
+    Health = S:Label("")
+    
+    task.spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    Health:Refresh("Health : " .. game.Players.LocalPlayer.Character.Humanoid.Health)
+                end
+            end
+        )
+    end
+)
+Energy = S:Label("")
+task.spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    Energy:Refresh("Stamina : " .. game.Players.LocalPlayer.Character.Energy.Value)
+                end
+            end
+        )
+    end
+)
     
 S:Line(eee)
 S:Label("Wolrd")
@@ -3340,11 +3401,14 @@ ElectricClaw = S:Label("❌ : Electric Claw")
 DragonTalon = S:Label("❌ : Dragon Talon")
 GodHuman = S:Label("❌ : God Human")
 S:Line()
-S:Label("Sword")
+S:Label("Legendary Sword")
 Shisui = S:Label("❌ : Shisui")
 Saddi = S:Label("❌ : Saddi")
 Wando = S:Label("❌ : Wando")
 TrueTripleKatana = S:Label("❌ : True Triple Katana")
+
+S:Line()
+S:Label("Sword")
 Saber = S:Label("❌ : Saber")
 Rengoku = S:Label("❌ : Rengoku")
 MidnightBlade = S:Label("❌ : Midnight Blade")
@@ -3412,6 +3476,34 @@ KillDonSwan = S:Label("❌ : Kill Don Swan")
                 end 
             end
         end)
+    end)
+    
+    spawn(function()
+        while wait() do
+            if _G.AutoFarm or World2 then
+                pcall(function()
+                    local args = {
+                        [1] = "LegendarySwordDealer",
+                        [2] = "1"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                    local args = {
+                        [1] = "LegendarySwordDealer",
+                        [2] = "2"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                    local args = {
+                        [1] = "LegendarySwordDealer",
+                        [2] = "3"
+                    }
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+                    if _G.AutoBuyLegendarySword_Hop and _G.AutoBuyLegendarySword and World2 then
+                        wait(10)
+                        Hop()
+                    end
+                end)
+            end 
+        end
     end)
 
 FruitList = {
