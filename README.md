@@ -3798,22 +3798,147 @@ spawn(function()
         end)
     end)
 
-function toTarget(targetPos, targetCFrame)
-        local tweenfunc = {}
-        local tween_s = game:service"TweenService"
-        local info = TweenInfo.new((targetPos - game:GetService("Players").LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude/300, Enum.EasingStyle.Linear)
-        local tween = tween_s:Create(game:GetService("Players").LocalPlayer.Character["HumanoidRootPart"], info, {CFrame = targetCFrame * CFrame.fromAxisAngle(Vector3.new(1,0,0), math.rad(0))})
-        tween:Play()
-    
-        function tweenfunc:Stop()
-            tween:Cancel()
-            return tween
-        end
-    
-        if not tween then return tween end
-        return tweenfunc
+task.spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    if game.PlaceId == 2753915549 then
+                        WolrdSet3:Refresh("Wolrd : 1 " .. "✅")
+                    end
+                end
+            end
+        )
     end
+)
+task.spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    if game.PlaceId == 4442272183 then
+                        WolrdSet:Refresh("Wolrd : 2 " .. "✅")
+                    end
+                end
+            end
+        )
+    end
+)
+task.spawn(
+    function()
+        pcall(
+            function()
+                while wait() do
+                    if game.PlaceId == 7449423635 then
+                        WolrdSet1:Refresh("Wolrd : 3 " .. "✅")
+                    end
+                end
+            end
+        )
+    end
+)
 
+
+task.spawn(
+    function()
+        while task.wait() do
+            pcall(
+                function()
+                    for i, v in pairs(
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")
+                    ) do
+                        if v.Name == "Saber" then
+                            Saber:Refresh("✅ : Saber")
+                        end
+                        if v.Name == "Rengoku" then
+                            Rengoku:Refresh("✅ : Rengoku")
+                        end
+                        if v.Name == "Midnight Blade" then
+                            MidnightBlade:Refresh("✅ : Midnight Blade")
+                        end
+                        if v.Name == "Dragon Trident" then
+                            DragonTrident:Refresh("✅ : Dragon Trident")
+                        end
+                        if v.Name == "Yama" then
+                            Yama:Refresh("✅ : Yama")
+                        end
+                        if v.Name == "Buddy Sword" then
+                            BuddySword:Refresh("✅ : Buddy Sword")
+                        end
+                        if v.Name == "Canvander" then
+                            Canvander:Refresh("✅ : Canvander")
+                        end
+                        if v.Name == "Twin Hooks" then
+                            TwinHooks:Refresh("✅ : Twin Hooks")
+                        end
+                        if v.Name == "Spikey Trident" then
+                            SpikeyTrident:Refresh("✅ : Spikey Trident")
+                        end
+                        if v.Name == "Hallow Scythe" then
+                            HallowScythe:Refresh("✅ : Hallow Scythe")
+                        end
+                        if v.Name == "Dark Dagger" then
+                            DarkDagger:Refresh("✅ : Dark Dagger")
+                        end
+                        if v.Name == "Tushita" then
+                            Tushita:Refresh("✅ : Tushita")
+                        end
+                    end
+                end
+            )
+        end
+    end
+)
+
+task.spawn(
+    function()
+        while task.wait() do
+            pcall(
+                function()
+                    for i, v in pairs(
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")
+                    ) do
+                        if v.Name == "Kabucha" then
+                            Kabucha:Refresh("✅ : Kabucha")
+                        end
+                        if v.Name == "Acidum Rifle" then
+                            AcidumRifle:Refresh("✅ : Acidum Rifle")
+                        end
+                        if v.Name == "Bizarre Rifle" then
+                            BizarreRifle:Refresh("✅ : Bizarre Rifle")
+                        end
+                    end
+                end
+            )
+        end
+    end
+)
+
+task.spawn(
+    function()
+        while task.wait() do
+            if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("BartiloQuestProgress", "Bartilo") == 3 then
+                BartiloQuest:Refresh("✅ : Bartilo Quest")
+            end
+            if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("GetUnlockables").FlamingoAccess == nil then
+            else
+                DonSwanQuest:Refresh("✅ : Don Swan Quest")
+            end
+            if game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("ZQuestProgress", "Check") == 1 then
+                KillDonSwan:Refresh("✅ : Kill Don Swan")
+            end
+        end
+    end
+)
+
+task.spawn(
+    function()
+        while task.wait() do
+            pcall(
+                function()
+                    for i, v in pairs(
+                        game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("getInventoryWeapons")
+                    ) do
                         if v.Name == "Shisui" then
                             Shisui:Refresh("✅ : Shisui")
                         end
