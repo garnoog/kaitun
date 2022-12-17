@@ -2200,9 +2200,9 @@ A:Line()
                 NameMon = "Fishman Warrior"
                 PUK = CFrame.new(60875.9921875, 35.35336685180664, 1434.669189453125)
                 CFrameQuest = CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
-                if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1200 then
-                ByPass(CFrameQuest)
-            end
+                if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+                end
             elseif MyLevel == 400 or MyLevel <= 449 then
                 Mon = "Fishman Commando [Lv. 400]"
                 LevelQuest = 2
@@ -2210,9 +2210,9 @@ A:Line()
                 NameMon = "Fishman Commando"
                 PUK = CFrame.new(61914.1484375, 82.76360321044922, 1461.85595703125)
                 CFrameQuest = CFrame.new(61122.65234375, 18.497442245483, 1569.3997802734)
-                if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1200 then
-                ByPass(CFrameQuest)
-            end
+                if _G.AutoFarm and (CFrameQuest.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 10000 then
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("requestEntrance",Vector3.new(61163.8515625, 11.6796875, 1819.7841796875))
+                end
             elseif MyLevel == 450 or MyLevel <= 474 then
                 Mon = "God's Guard [Lv. 450]"
                 LevelQuest = 1
