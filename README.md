@@ -3816,7 +3816,7 @@ function toTarget(targetPos, targetCFrame)
 
 spawn(function()
             while wait() do
-                if _G.AutoFarm or World1 then
+                if _G.Saber or World1 then
                     if game.Players.localPlayer.Data.Level.Value < 200 then
         stop(_G.AutoFarm)
                     else
