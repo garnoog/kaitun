@@ -3410,7 +3410,7 @@ end)
 spawn(function()
       while wait() do 
         pcall(function() 
-      If _G.Aa then 
+      if _G.Aa then 
   			  for i,v in pairs(game:GetService("Workspace"):GetChildren()) do if v:IsA("Tool") then if string.find(v.Name, "Fruit") then
    				 repeat wait() 
    					 wait(.1) 
