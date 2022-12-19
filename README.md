@@ -3407,27 +3407,6 @@ spawn(function()
     end
 end)
 
-spawn(function()
-      while wait() do 
-        pcall(function() 
-      if _G.Aa then 
-  			  for i,v in pairs(game:GetService("Workspace"):GetChildren()) do if v:IsA("Tool") then if string.find(v.Name, "Fruit") then
-   				 repeat wait() 
-   					 wait(.1) 
-    					v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 10, 0)
-   				 wait(.1) 
-   				 v.Handle.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 2, 0)
-   					 wait(1) 
-   					 firetouchinterest(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart,v.Handle,0)
-   					 wait(.1) 
-   					 until not _G.AutoFarm or v.Parent == game.Players.LocalPlayer.Character 
-    end
-    end
-    end
-    end
-    end)
-    end
-    end)
 
 spawn(function()
      pcall(function()
