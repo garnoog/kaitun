@@ -3726,6 +3726,17 @@ task.spawn(
     end
 )
 
+spawn(function()
+    pcall(function()
+        while wait(.1) do
+            if _G.AutoFarm then    
+                game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Bones","Buy",1,1)
+            end
+        end
+    end)
+end)
+
+
 _G.Team = 'Marine'
 
  if game:GetService("Players").LocalPlayer.PlayerGui.Main:FindFirstChild("ChooseTeam") then
