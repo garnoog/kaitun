@@ -1,3 +1,49 @@
+    local decalsyeeted = true
+    local g = game
+    local w = g.Workspace
+    local l = g.Lighting
+    local t = w.Terrain
+    t.WaterWaveSize = 0
+    t.WaterWaveSpeed = 0
+    t.WaterReflectance = 0
+    t.WaterTransparency = 0
+    l.GlobalShadows = false
+    l.FogEnd = 9e9
+    l.Brightness = 0
+    settings().Rendering.QualityLevel = "Level01"
+    for i, v in pairs(g:GetDescendants()) do
+        if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then 
+            v.Material = "Plastic"
+            v.Reflectance = 0
+        elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+            v.Transparency = 1
+        elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+            v.Lifetime = NumberRange.new(0)
+        elseif v:IsA("Explosion") then
+            v.BlastPressure = 1
+            v.BlastRadius = 1
+        elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") or v:IsA("Sparkles") then
+            v.Enabled = false
+        elseif v:IsA("MeshPart") then
+            v.Material = "Plastic"
+            v.Reflectance = 0
+            v.TextureID = 10385902758728957
+        end
+    end
+    for i, e in pairs(l:GetChildren()) do
+        if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+            e.Enabled = false
+        end
+end
+
+game.StarterGui:SetCore("SendNotification", {
+      Icon = "rbxassetid://11538629932";
+      Title = "Gay Hub? : Free Scripts", 
+      Text = "I Kai",
+  })
+
+wait(2)
+
 local InputService = game:GetService('UserInputService');
 local TextService = game:GetService('TextService');
 local TweenService = game:GetService('TweenService');
@@ -2620,7 +2666,7 @@ function Library:CreateWindow(...)
         function Tab:AddGroupbox(Info)
             local Groupbox = {};
 
-            local BoxOuter = Library:Create('ScrollingFrame', {
+            local BoxOuter = Library:Create('Frame', {
                 BackgroundColor3 = Library.BackgroundColor;
                 BorderColor3 = Library.OutlineColor;
                 Size = UDim2.new(1, 0, 0, 507);
@@ -4933,6 +4979,58 @@ task.spawn(
         end
     end
 )
+
+spawn(function()
+while task.wait() do
+    if _G.AutoFarm then
+function UseCode(Text)
+			game:GetService("ReplicatedStorage").Remotes.Redeem:InvokeServer(Text)
+		end
+	UseCode("Enyo_is_Pro")
+    UseCode("Magicbus")
+    UseCode("JCWK")
+    UseCode("Starcodeheo")
+    UseCode("Bluxxy")
+    UseCode("fudd10_v2")
+    UseCode("3BVISITS")
+    UseCode("UPD16")
+    UseCode("FUDD10")
+    UseCode("BIGNEWS")
+    UseCode("Sub2OfficialNoobie")
+    UseCode("SUB2GAMERROBOT_EXP1")
+    UseCode("StrawHatMaine")
+    UseCode("SUB2NOOBMASTER123")
+    UseCode("Sub2Daigrock")
+    UseCode("Axiore")
+    UseCode("TantaiGaming")
+    UseCode("STRAWHATMAINE")
+    UseCode("kittgaming")
+    UseCode("Magicbus")
+    UseCode("JCWK")
+    UseCode("Starcodeheo")
+    UseCode("Bluxxy")
+    UseCode("fudd10_v2")
+    UseCode("Enyu_is_Pro")
+    UseCode("Sub2Fer999")
+    UseCode("THEGREATACE")
+    UseCode("SUB2GAMERROBOT_EXP1")
+    UseCode("Sub2OfficialNoobie")
+    UseCode("StrawHatMaine")
+    UseCode("SUB2NOOBMASTER123")
+    UseCode("Sub2Daigrock")
+    UseCode("Axiore")
+    UseCode("TantaiGaming")
+    UseCode("STRAWHATMAINE")
+    UseCode("JCWK")
+    UseCode("Sub2Fer999")
+    UseCode("Magicbus")
+    UseCode("Starcodeheo")
+    UseCode("Bluxxy")
+    UseCode("Sub2Fer999")
+	UseCode("GAMERROBOT_YT")
+        end
+    end
+end)
 
 
 return Library
