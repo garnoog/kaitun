@@ -3866,7 +3866,7 @@ Time = A:AddLabel("ServerTime")
         local Hour = math.floor(GameTime/(60^2))%24
         local Minute = math.floor(GameTime/(60^1))%60
         local Second = math.floor(GameTime/(60^0))%60
-        Time:SetTextSetText("Hour "..Hour.." Minute "..Minute.." Second "..Second)
+        Time:SetText("Hour "..Hour.." Minute "..Minute.." Second "..Second)
     end
     
     spawn(function()
